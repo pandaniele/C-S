@@ -51,6 +51,16 @@ TextView ttt;
 
 
 
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(), Api.class);
+
+                startActivity(i);
+            }
+        });
+
+
         inserisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +91,7 @@ TextView ttt;
         if(gf.readFile("archivio.txt", getApplicationContext(), username.getText().toString(), password.getText().toString())==1){
             chiamata();
             search.setVisibility(View.VISIBLE);
+
         }
         else {
             Toast.makeText(getApplicationContext(), "ATTENZIONE: CREDENZIALI ERRATE", Toast.LENGTH_SHORT).show();
@@ -125,5 +136,7 @@ TextView ttt;
         queue.add(stringRequest);        //AGGIUNTA RICHIESTA
 
     }
+
+
 
 }
